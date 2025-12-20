@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splits Training App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤸 Splits Training</h1>
+            <p class="subtitle">Rebuild your flexibility, one stretch at a time</p>
+        </header>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <div class="stats-card">
+                <h2>Your Progress</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="total-sessions">0</span>
+                        <span class="stat-label">Sessions Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="total-time">0</span>
+                        <span class="stat-label">Minutes Trained</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="streak">0</span>
+                        <span class="stat-label">Day Streak</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workout-selection">
+                <h2>Choose Your Workout</h2>
+                <button class="workout-btn" onclick="startWorkout('beginner')">
+                    <h3>Front Splits Focus</h3>
+                    <p>10 min • Focuses on front split progression with PNF techniques</p>
+                </button>
+                <button class="workout-btn" onclick="startWorkout('straddle')">
+                    <h3>Straddle/Middle Split Focus</h3>
+                    <p>10 min • Targets middle split and straddle flexibility</p>
+                </button>
+                <button class="workout-btn" onclick="startWorkout('advanced')">
+                    <h3>Oversplit Training</h3>
+                    <p>10 min • Advanced oversplit work (requires full splits)</p>
+                </button>
+            </div>
+
+            <button class="secondary-btn" onclick="showHistory()">View History</button>
+        </div>
+
+        <!-- Warm-up Reminder Screen -->
+        <div id="warmup-screen" class="screen">
+            <div class="warmup-card">
+                <h2>⚠️ Important: Warm Up First!</h2>
+                <p class="warning-text">Before starting your stretching session, you MUST warm up for at least 10 minutes.</p>
+
+                <div class="warmup-suggestions">
+                    <h3>Warm-up Ideas:</h3>
+                    <ul>
+                        <li>Light jogging or jumping jacks</li>
+                        <li>Dynamic leg swings</li>
+                        <li>Bodyweight squats</li>
+                        <li>Walking lunges</li>
+                        <li>High knees or butt kicks</li>
+                    </ul>
+                </div>
+
+                <p class="safety-note">💡 Your muscles need to be warm to prevent injury and maximize flexibility gains.</p>
+
+                <div class="button-group">
+                    <button class="secondary-btn" onclick="showHome()">Go Back</button>
+                    <button class="primary-btn" onclick="confirmWarmup()">I'm Warmed Up, Let's Go!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Screen -->
+        <div id="workout-screen" class="screen">
+            <div class="workout-header">
+                <h2 id="workout-title">Front Splits Focus</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="exercise-counter" id="exercise-counter">Exercise 1 of 6</p>
+            </div>
+
+            <div class="exercise-card">
+                <h3 id="exercise-name">Exercise Name</h3>
+                <p id="exercise-description">Exercise description goes here</p>
+
+                <div class="timer-display">
+                    <div class="timer-circle">
+                        <svg class="timer-svg" viewBox="0 0 100 100">
+                            <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="timer-progress" id="timer-progress" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="timer-text" id="timer-text">0:00</div>
+                    </div>
+                    <p class="timer-label" id="timer-label">Get Ready</p>
+                </div>
+
+                <div id="pnf-instructions" class="pnf-instructions hidden">
+                    <div class="pnf-phase" id="pnf-phase">
+                        <strong>Contract Phase:</strong> Push against the floor for 5 seconds
+                    </div>
+                </div>
+
+                <div class="rep-counter hidden" id="rep-counter">
+                    <span>Rep <span id="current-rep">1</span> of <span id="total-reps">3</span></span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="secondary-btn" onclick="pauseWorkout()">Pause</button>
+                <button class="secondary-btn" onclick="skipExercise()">Skip Exercise</button>
+                <button class="danger-btn" onclick="quitWorkout()">Quit Workout</button>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completion-screen" class="screen">
+            <div class="completion-card">
+                <h2>🎉 Workout Complete!</h2>
+                <p class="completion-message">Great job! You completed your stretching session.</p>
+
+                <div class="completion-stats">
+                    <div class="completion-stat">
+                        <span class="stat-number" id="completion-time">10</span>
+                        <span class="stat-label">Minutes</span>
+                    </div>
+                    <div class="completion-stat">
+                        <span class="stat-number" id="completion-exercises">6</span>
+                        <span class="stat-label">Exercises</span>
+                    </div>
+                </div>
+
+                <p class="reminder">💡 Remember to train 3-4 times per week for best results!</p>
+
+                <button class="primary-btn" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+
+        <!-- History Screen -->
+        <div id="history-screen" class="screen">
+            <div class="history-card">
+                <h2>Training History</h2>
+                <div id="history-list" class="history-list">
+                    <p class="empty-state">No sessions yet. Start your first workout!</p>
+                </div>
+                <button class="secondary-btn" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="workouts.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
