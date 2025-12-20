@@ -7,6 +7,7 @@ let timer = null;
 let timeRemaining = 0;
 let currentPnfPhaseIndex = 0;
 let workoutStartTime = null;
+let isWaitingToStart = false;
 
 // Storage keys
 const STORAGE_KEYS = {
@@ -67,6 +68,7 @@ function startExercise() {
     const exercise = currentWorkout.exercises[currentExerciseIndex];
     currentRep = 1;
     isPaused = false;
+    isWaitingToStart = true;
 
     // Update UI
     document.getElementById('workout-title').textContent = currentWorkout.name;
@@ -96,6 +98,26 @@ function startExercise() {
     } else {
         document.getElementById('rep-counter').classList.add('hidden');
     }
+
+    // Show start button and hide timer controls
+    document.getElementById('start-exercise-btn').classList.remove('hidden');
+    document.getElementById('timer-display').classList.add('hidden');
+    document.getElementById('pnf-instructions').classList.add('hidden');
+    document.getElementById('exercise-controls').classList.add('hidden');
+
+    // Set timer to ready state
+    document.getElementById('timer-label').textContent = 'Ready?';
+    document.getElementById('timer-text').textContent = 'Press Start';
+}
+
+function beginExercise() {
+    isWaitingToStart = false;
+    const exercise = currentWorkout.exercises[currentExerciseIndex];
+
+    // Hide start button and show timer controls
+    document.getElementById('start-exercise-btn').classList.add('hidden');
+    document.getElementById('timer-display').classList.remove('hidden');
+    document.getElementById('exercise-controls').classList.remove('hidden');
 
     // Start the timer based on exercise type
     if (exercise.type === 'pnf') {
@@ -220,8 +242,8 @@ function nextExercise() {
     clearInterval(timer);
 
     if (currentExerciseIndex < currentWorkout.exercises.length) {
-        // Short break between exercises
-        setTimeout(() => startExercise(), 2000);
+        // Move to next exercise (will show start button)
+        startExercise();
     } else {
         completeWorkout();
     }

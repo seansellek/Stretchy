@@ -96,7 +96,11 @@
                 <h3 id="exercise-name">Exercise Name</h3>
                 <p id="exercise-description">Exercise description goes here</p>
 
-                <div class="timer-display">
+                <button id="start-exercise-btn" class="primary-btn start-btn hidden" onclick="beginExercise()">
+                    Start Exercise
+                </button>
+
+                <div id="timer-display" class="timer-display">
                     <div class="timer-circle">
                         <svg class="timer-svg" viewBox="0 0 100 100">
                             <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
@@ -118,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="button-group">
+            <div id="exercise-controls" class="button-group">
                 <button class="secondary-btn" onclick="pauseWorkout()">Pause</button>
                 <button class="secondary-btn" onclick="skipExercise()">Skip Exercise</button>
                 <button class="danger-btn" onclick="quitWorkout()">Quit Workout</button>
