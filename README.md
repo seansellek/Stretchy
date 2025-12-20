@@ -30,11 +30,26 @@ A web-based flexibility training app designed for ex-gymnasts working to regain 
 
 ## How to Use
 
+### Using Locally
 1. **Open the App**: Open `index.html` in your web browser
 2. **Choose a Workout**: Select from Front Splits, Straddle, or Oversplit training
 3. **Warm Up**: Complete 10 minutes of warm-up (jumping jacks, leg swings, etc.)
 4. **Follow Along**: The app will guide you through each exercise with timers
 5. **Track Progress**: View your stats and workout history on the home screen
+
+### Deploy to GitHub Pages
+
+This app is ready to deploy to GitHub Pages! Follow these steps:
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Pages** (under "Code and automation")
+3. Under **Source**, select **Deploy from a branch**
+4. Under **Branch**, select your main branch (e.g., `main` or `master`) and `/ (root)`
+5. Click **Save**
+6. Wait a few minutes for deployment
+7. Your app will be available at: `https://<username>.github.io/<repository-name>/`
+
+The app is fully static with no build process required, so it works perfectly with GitHub Pages out of the box!
 
 ## Workout Descriptions
 
