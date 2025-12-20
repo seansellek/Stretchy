@@ -134,6 +134,37 @@ header h1 {
     font-size: 0.95rem;
 }
 
+.workout-btn.primary-workout {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.workout-btn.primary-workout::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+    transform: rotate(45deg);
+}
+
+.workout-btn.primary-workout h3,
+.workout-btn.primary-workout p {
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.workout-btn.primary-workout:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
 /* Buttons */
 .primary-btn,
 .secondary-btn,
