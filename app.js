@@ -108,7 +108,15 @@ function startExercise() {
 function startRegularTimer(exercise) {
     document.getElementById('pnf-instructions').classList.add('hidden');
     timeRemaining = exercise.duration;
-    document.getElementById('timer-label').textContent = 'Hold this stretch';
+
+    // Set appropriate label based on exercise type
+    const labels = {
+        'warmup': 'Get Moving!',
+        'dynamic': 'Keep Moving',
+        'static': 'Hold this stretch',
+        'oversplit': 'Hold carefully'
+    };
+    document.getElementById('timer-label').textContent = labels[exercise.type] || 'Hold this stretch';
 
     updateTimerDisplay();
 
@@ -117,9 +125,14 @@ function startRegularTimer(exercise) {
             timeRemaining--;
             updateTimerDisplay();
 
+            // Countdown beeps for last 3 seconds
+            if (timeRemaining > 0 && timeRemaining <= 3) {
+                playSound('countdown');
+            }
+
             if (timeRemaining <= 0) {
                 clearInterval(timer);
-                playSound();
+                playSound('complete');
                 nextExercise();
             }
         }
@@ -143,7 +156,7 @@ function runPnfPhase(exercise) {
             setTimeout(() => runPnfPhase(exercise), 1000);
         } else {
             // All reps done, move to next exercise
-            playSound();
+            playSound('complete');
             nextExercise();
         }
         return;
@@ -155,12 +168,26 @@ function runPnfPhase(exercise) {
     document.getElementById('pnf-phase').innerHTML = `<strong>${capitalizeFirst(phase.phase)}:</strong> ${phase.instruction}`;
     document.getElementById('timer-label').textContent = capitalizeFirst(phase.phase) + ' Phase';
 
+    // Play sound cue for phase transition
+    if (phase.phase === 'contract') {
+        playSound('contract');
+    } else if (phase.phase === 'relax') {
+        playSound('relax');
+    } else if (phase.phase === 'deepen') {
+        playSound('deepen');
+    }
+
     updateTimerDisplay();
 
     timer = setInterval(() => {
         if (!isPaused) {
             timeRemaining--;
             updateTimerDisplay();
+
+            // Countdown beeps for last 3 seconds
+            if (timeRemaining > 0 && timeRemaining <= 3) {
+                playSound('countdown');
+            }
 
             if (timeRemaining <= 0) {
                 clearInterval(timer);
@@ -222,6 +249,9 @@ function quitWorkout() {
 
 function completeWorkout() {
     clearInterval(timer);
+
+    // Play celebratory completion sound
+    playSound('workout_complete');
 
     // Calculate workout duration
     const duration = Math.round((Date.now() - workoutStartTime) / 1000 / 60);
@@ -345,24 +375,86 @@ function formatDate(date) {
     }
 }
 
-function playSound() {
-    // Create a simple beep sound using Web Audio API
+// Enhanced sound system for workout cues
+function playSound(type = 'complete') {
     try {
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
 
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+        const soundProfiles = {
+            // Exercise complete - cheerful ascending tone
+            'complete': {
+                frequencies: [600, 800],
+                duration: 0.15,
+                gap: 0.05,
+                volume: 0.3
+            },
+            // PNF Contract phase - strong, attention-grabbing
+            'contract': {
+                frequencies: [900],
+                duration: 0.2,
+                gap: 0,
+                volume: 0.35,
+                type: 'square'
+            },
+            // PNF Relax phase - gentle, calming
+            'relax': {
+                frequencies: [400],
+                duration: 0.3,
+                gap: 0,
+                volume: 0.25
+            },
+            // PNF Deepen phase - encouraging mid-tone
+            'deepen': {
+                frequencies: [650],
+                duration: 0.25,
+                gap: 0,
+                volume: 0.3
+            },
+            // Countdown beep - short and clear
+            'countdown': {
+                frequencies: [700],
+                duration: 0.1,
+                gap: 0,
+                volume: 0.25
+            },
+            // Final countdown - more urgent
+            'final': {
+                frequencies: [900, 900],
+                duration: 0.1,
+                gap: 0.08,
+                volume: 0.35
+            },
+            // Workout complete - celebratory
+            'workout_complete': {
+                frequencies: [500, 650, 800, 1000],
+                duration: 0.15,
+                gap: 0.05,
+                volume: 0.3
+            }
+        };
 
-        oscillator.frequency.value = 800;
-        oscillator.type = 'sine';
+        const profile = soundProfiles[type] || soundProfiles['complete'];
+        let currentTime = audioContext.currentTime;
 
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        profile.frequencies.forEach((freq, index) => {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
 
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.5);
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = freq;
+            oscillator.type = profile.type || 'sine';
+
+            const startTime = currentTime + (index * (profile.duration + profile.gap));
+            const endTime = startTime + profile.duration;
+
+            gainNode.gain.setValueAtTime(profile.volume, startTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, endTime);
+
+            oscillator.start(startTime);
+            oscillator.stop(endTime);
+        });
     } catch (e) {
         // Silent fail if audio not supported
     }
