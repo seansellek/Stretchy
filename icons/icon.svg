@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a29bfe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGradient)" rx="80"/>
+
+  <!-- Stretching figure doing splits -->
+  <g stroke="#ffffff" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Head -->
+    <circle cx="256" cy="156" r="45" fill="#ffffff"/>
+
+    <!-- Body (torso) -->
+    <line x1="256" y1="201" x2="256" y2="306"/>
+
+    <!-- Left arm (stretched up) -->
+    <line x1="256" y1="221" x2="176" y2="171"/>
+
+    <!-- Right arm (stretched up) -->
+    <line x1="256" y1="221" x2="336" y2="171"/>
+
+    <!-- Left leg (doing splits) -->
+    <line x1="256" y1="306" x2="106" y2="396"/>
+
+    <!-- Right leg (doing splits) -->
+    <line x1="256" y1="306" x2="406" y2="396"/>
+  </g>
+</svg>
