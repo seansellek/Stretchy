@@ -1,0 +1,16 @@
+{
+  "name": "stretchy",
+  "version": "1.0.0",
+  "description": "A web-based flexibility training app designed for ex-gymnasts working to regain splits and oversplits. Built with research-backed best practices for flexibility training.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:59676/git/seansellek/Stretchy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
