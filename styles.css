@@ -165,6 +165,24 @@ header h1 {
     border-color: rgba(255, 255, 255, 0.8);
 }
 
+.workout-btn.recovery-workout {
+    background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+    border-left: 4px solid #26a69a;
+}
+
+.workout-btn.recovery-workout h3 {
+    color: #00695c;
+}
+
+.workout-btn.recovery-workout p {
+    color: #004d40;
+}
+
+.workout-btn.recovery-workout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(38, 166, 154, 0.3);
+}
+
 /* Buttons */
 .primary-btn,
 .secondary-btn,

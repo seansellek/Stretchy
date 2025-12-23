@@ -267,6 +267,136 @@ const workouts = {
         ]
     },
 
+    recovery: {
+        name: "Recovery & Maintenance",
+        description: "Gentle flexibility work for the day after heavy training. This maintains your range of motion while respecting your body's recovery needs.",
+        exercises: [
+            // GENTLE WARMUP - Very light movement
+            {
+                name: "Gentle Movement Warmup",
+                description: "Very light movement to encourage blood flow. Slow arm circles, gentle torso twists, easy marching in place. Keep it relaxed—you're waking up the tissues, not challenging them.",
+                duration: 60,
+                type: "warmup",
+                reps: 1
+            },
+            {
+                name: "Breathing & Body Scan",
+                description: "Stand or sit comfortably. Take 5-6 deep breaths. Notice areas of soreness without judgment. This isn't a fight—you're just checking in with yesterday's work.",
+                duration: 45,
+                type: "warmup",
+                reps: 1
+            },
+
+            // LIGHT STATIC STRETCHES - Long holds, low intensity
+            {
+                name: "Gentle Forward Fold",
+                description: "Stand with feet hip-width apart. Fold forward slowly, letting your arms hang. Don't reach for your toes—just let gravity do gentle work. Your hamstrings already worked hard yesterday; this is just encouraging blood flow.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Easy Wide-Leg Stretch",
+                description: "Stand with legs comfortably wide (not maximum width). Fold forward and rest your hands on your thighs or the ground. Breathe slowly. This invites circulation to your adductors without demanding anything.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supported Low Lunge - Right Side",
+                description: "Step your right foot forward into a gentle lunge. Keep your hands on the ground or on blocks for support. Don't sink aggressively—find a comfortable depth where you feel a light stretch. Stay below your edge. This is maintenance, not progress.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supported Low Lunge - Left Side",
+                description: "Step your left foot forward into a gentle lunge. Keep your hands on the ground or on blocks for support. Don't sink aggressively—find a comfortable depth where you feel a light stretch. Stay below your edge.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Butterfly Stretch - Relaxed",
+                description: "Sit with soles of feet together. Rather than pressing your knees down, just let them settle naturally. Place your hands behind you for support if that feels better. Breathe slowly. You're keeping the door unlocked, not pushing it open.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Comfortable Seated Straddle",
+                description: "Sit with legs in a moderate straddle—not your widest position. Keep your back comfortable, even if that means a slight curve. Lean forward just enough to feel gentle sensation. This encourages circulation without poking sore tissue.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            },
+
+            // GENTLE PNF - Low intensity, fewer reps
+            {
+                name: "Recovery PNF - Right Front Split",
+                description: "Slide into an easy front split position with your right leg forward—maybe 70-80% of your maximum depth. Use very gentle PNF contractions. Today's goal is neural down-regulation and circulation, not new personal records.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Settle into a comfortable depth. Breathe slowly and deeply." },
+                    { phase: "contract", duration: 6, instruction: "Gently press your heels into the ground. Only 30-40% effort—this is a polite request, not a demand." },
+                    { phase: "relax", duration: 6, instruction: "Release completely. Exhale fully and let your muscles soften." },
+                    { phase: "deepen", duration: 8, instruction: "If your body offers a bit more depth naturally, accept it. If not, stay exactly where you are. Both are correct." }
+                ]
+            },
+            {
+                name: "Recovery PNF - Left Front Split",
+                description: "Slide into an easy front split position with your left leg forward—maybe 70-80% of your maximum depth. Use very gentle PNF contractions. Remember: you're maintaining access to flexibility, not expanding it today.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Settle into a comfortable depth. Breathe slowly and deeply." },
+                    { phase: "contract", duration: 6, instruction: "Gently press your heels into the ground. Only 30-40% effort—this is a polite request, not a demand." },
+                    { phase: "relax", duration: 6, instruction: "Release completely. Exhale fully and let your muscles soften." },
+                    { phase: "deepen", duration: 8, instruction: "If your body offers a bit more depth naturally, accept it. If not, stay exactly where you are. Both are correct." }
+                ]
+            },
+            {
+                name: "Recovery PNF - Middle Split",
+                description: "Slide into a comfortable middle split position—again, not your maximum width. Today's PNF work is about saying hello to your range of motion, not proving anything to it.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Find a width that feels accessible. Breathe calmly." },
+                    { phase: "contract", duration: 6, instruction: "Press your heels gently outward. Think 30-40% effort—your adductors worked yesterday; be polite." },
+                    { phase: "relax", duration: 6, instruction: "Completely relax. Exhale and release all tension." },
+                    { phase: "deepen", duration: 8, instruction: "If sliding a bit wider feels easy, do it. Otherwise, hold where you are. No heroics today." }
+                ]
+            },
+
+            // CLOSING - Gentle integration
+            {
+                name: "Supine Figure-4 Stretch - Right",
+                description: "Lie on your back. Cross your right ankle over your left knee. Gently pull your left thigh toward your chest. This is a gentle hip opener that doesn't load your legs the way seated stretches do. It's a kind way to end.",
+                duration: 45,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supine Figure-4 Stretch - Left",
+                description: "Lie on your back. Cross your left ankle over your right knee. Gently pull your right thigh toward your chest. Breathe slowly. You're helping yesterday's work settle in, not adding new stress.",
+                duration: 45,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Final Relaxation",
+                description: "Lie on your back with legs extended or knees bent—whatever feels most comfortable. Take 5-6 slow, deep breaths. Notice that your legs are still capable and responsive. You showed up politely, and they responded in kind. That's the whole point.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            }
+        ]
+    },
+
     advanced: {
         name: "Oversplit Training",
         exercises: [
