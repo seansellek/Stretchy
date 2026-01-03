@@ -397,6 +397,159 @@ const workouts = {
         ]
     },
 
+    postLeg: {
+        name: "Post-Leg Day Flexibility",
+        description: "Nervous system recovery for former gymnasts after heavy leg training. Coax, don't conquer. This restores range of motion without triggering protective stiffness.",
+        exercises: [
+            // PARASYMPATHETIC DOWNSHIFTING - Calm the nervous system first
+            {
+                name: "Parasympathetic Breathing",
+                description: "Lie on your back with feet flat on the floor, knees bent. Take 5 slow nasal breaths. Exhale long and fully—make the exhale twice as long as the inhale. This tells your nervous system that long ranges are safe. Stretching without calming comes first is just a tug-of-war you'll lose.",
+                duration: 60,
+                type: "warmup",
+                reps: 1
+            },
+            {
+                name: "Body Awareness Scan",
+                description: "Still lying down, notice where you feel tight from yesterday's leg work. Don't judge it—just observe. Your muscles are shortened, inflamed, and neurologically guarded. That's normal. Today you're convincing them to unlock, not forcing them open.",
+                duration: 45,
+                type: "warmup",
+                reps: 1
+            },
+
+            // LONG-DURATION, LOW-INTENSITY STATIC STRETCHES
+            {
+                name: "Supine Hamstring Stretch - Right Leg",
+                description: "Lie on your back. Use a strap, belt, or towel around your right foot. Keep your pelvis neutral and grounded. Straighten your knee softly—not locked, just extended. Pull gently until you feel a stretch, then hold. You're telling your hamstrings they don't need to stay armored.",
+                duration: 75,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supine Hamstring Stretch - Left Leg",
+                description: "Lie on your back. Use a strap, belt, or towel around your left foot. Keep your pelvis neutral and grounded. Straighten your knee softly—not locked, just extended. Pull gently until you feel a stretch, then hold. Breathe slowly and let the muscle release in its own time.",
+                duration: 75,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Half-Kneeling Hip Flexor Stretch - Right Leg Back",
+                description: "Right knee on the ground, left foot forward. Hands on your left thigh for support. Gently tilt your pelvis posteriorly (tuck your tailbone slightly). Squeeze the glute of your back (right) leg gently—about 20% effort. Don't chase depth, chase alignment. Hip flexors and quads are usually the biggest split-killers after squats and lunges.",
+                duration: 60,
+                type: "static",
+                reps: 2
+            },
+            {
+                name: "Half-Kneeling Hip Flexor Stretch - Left Leg Back",
+                description: "Left knee on the ground, right foot forward. Hands on your right thigh for support. Gently tilt your pelvis posteriorly (tuck your tailbone slightly). Squeeze the glute of your back (left) leg gently—about 20% effort. Focus on feeling the stretch in your left hip flexor and quad. Hold steady—no bouncing.",
+                duration: 60,
+                type: "static",
+                reps: 2
+            },
+            {
+                name: "Wide-Knee Child's Pose (Elevated)",
+                description: "Start on hands and knees. Spread your knees wide apart, toes touching behind you. Lower down onto your forearms or rest on yoga blocks—whatever lets you stay elevated and gentle after leg day. This isn't about maximum depth. Breathe slowly into your inner thighs. You're encouraging circulation, not forcing openness.",
+                duration: 90,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supported Frog Stretch",
+                description: "From hands and knees, spread your knees wide with feet in line with knees. Lower to your forearms. If this is too much after yesterday's leg work, place a folded towel or cushion under each knee. Support yourself well. Hold 60-120 seconds. This is about patient, gentle work on your adductors.",
+                duration: 90,
+                type: "static",
+                reps: 1
+            },
+
+            // SUPPORTED SPLIT WORK - Moderate intensity, preserve neural familiarity
+            {
+                name: "Supported Front Split - Right Leg (60-70% Intensity)",
+                description: "Use yoga blocks, a bench, or your hands on the floor for support. Slide into a front split with your right leg forward—only to about 60-70% of your maximum depth. This isn't the day to prove anything. Stay here for 30-60 seconds. You're preserving neural familiarity without triggering protective stiffness.",
+                duration: 45,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supported Front Split - Left Leg (60-70% Intensity)",
+                description: "Use yoga blocks, a bench, or your hands on the floor for support. Slide into a front split with your left leg forward—only to about 60-70% of your maximum depth. Keep your support. Breathe slowly. Your nervous system is learning that this range is still accessible and safe.",
+                duration: 45,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supported Middle Split (60-70% Intensity)",
+                description: "Slide into a middle split position using your hands or forearms for support. Go to about 60-70% of your maximum width—not your edge. Hold here calmly. This maintains your split familiarity without adding stress to yesterday's leg work. Breathe deeply and stay patient.",
+                duration: 50,
+                type: "static",
+                reps: 1
+            },
+
+            // ISOMETRIC CONTRACTIONS AT LONG RANGE - Crucial for gymnastic background
+            {
+                name: "Isometric Front Split - Right Leg",
+                description: "Return to your supported front split position (right leg forward, 60-70% depth). Once settled, gently contract the muscles you're stretching—press your heels into the ground at about 20-30% effort for 5 seconds. Then relax completely and sink slightly deeper if your body offers it. This tells your nervous system: 'I can produce force here, so it's safe.' Repeat this contract-relax cycle 2-3 times.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Settle into your split at 60-70% depth. Breathe and relax fully." },
+                    { phase: "contract", duration: 5, instruction: "Gently press both heels into the ground. Only 20-30% effort—you're signaling safety, not maximum effort." },
+                    { phase: "relax", duration: 5, instruction: "Release completely. Exhale and let everything soften." },
+                    { phase: "deepen", duration: 10, instruction: "If your body offers more depth naturally, accept it. If not, stay where you are. Both responses are correct." }
+                ]
+            },
+            {
+                name: "Isometric Front Split - Left Leg",
+                description: "Return to your supported front split position (left leg forward, 60-70% depth). Settle in, then gently contract—press your heels into the ground at about 20-30% effort for 5 seconds. Relax completely and see if you can sink slightly deeper. This isometric work at long range is crucial for someone with your gymnastics background. You're teaching strength in length.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Settle into your split at 60-70% depth. Breathe calmly." },
+                    { phase: "contract", duration: 5, instruction: "Gently press both heels into the ground. Only 20-30% effort—light and controlled." },
+                    { phase: "relax", duration: 5, instruction: "Release all tension. Exhale deeply and soften." },
+                    { phase: "deepen", duration: 10, instruction: "Accept any depth your body offers. No forcing—just receiving." }
+                ]
+            },
+            {
+                name: "Isometric Middle Split",
+                description: "Return to your supported middle split position (60-70% width). Once settled, gently press your heels outward into the floor at about 20-30% effort for 5 seconds. Then completely relax and see if you can slide slightly wider. This is the crucial add-on for your background: your nervous system learns 'I can produce force here, so it's safe.' Two or three cycles is plenty.",
+                duration: 20,
+                type: "pnf",
+                reps: 2,
+                pnfPattern: [
+                    { phase: "stretch", duration: 20, instruction: "Find your 60-70% middle split width. Breathe slowly and settle." },
+                    { phase: "contract", duration: 5, instruction: "Press your heels gently outward. 20-30% effort—this is about neural signaling, not strength display." },
+                    { phase: "relax", duration: 5, instruction: "Completely release. Exhale fully and let your muscles soften." },
+                    { phase: "deepen", duration: 10, instruction: "If sliding wider feels easy and natural, do it. Otherwise, hold steady. Trust your body's wisdom." }
+                ]
+            },
+
+            // CLOSING - Integration and rest
+            {
+                name: "Supine Figure-4 Stretch - Right",
+                description: "Lie on your back. Cross your right ankle over your left knee. Gently pull your left thigh toward your chest. This is a gentle hip opener that doesn't load your legs the way floor stretches do. Breathe slowly. You're helping yesterday's work settle.",
+                duration: 50,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Supine Figure-4 Stretch - Left",
+                description: "Lie on your back. Cross your left ankle over your right knee. Gently pull your right thigh toward your chest. Stay relaxed. This gentle closing stretch helps integration without adding stress.",
+                duration: 50,
+                type: "static",
+                reps: 1
+            },
+            {
+                name: "Final Integration",
+                description: "Lie on your back, legs extended or knees bent—whatever feels best. Take 5-6 slow, deep breaths. If you do this consistently, you'll notice something familiar return: that elastic, springy feeling gymnasts have, even inside heavier muscle. Strength made you dense; calm, patient stretching makes you long again.",
+                duration: 60,
+                type: "static",
+                reps: 1
+            }
+        ]
+    },
+
     advanced: {
         name: "Oversplit Training",
         exercises: [
